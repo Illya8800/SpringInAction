@@ -1,40 +1,23 @@
 package ru.hopak.ilya;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MusicPlayer {
-    private Music music;
-    private String name;
-    private int value;
+    private Music music1;
+    private Music music2;
 
-    public String getName() {
-        return name;
+    @Autowired
+    public MusicPlayer(
+            @Qualifier("rockMusic") Music music1,
+            @Qualifier("classicalMusic") Music music2) {
+        this.music1 = music1;
+        this.music2 = music2;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    public MusicPlayer() {}
-
-    public MusicPlayer(Music music) {
-        this.music = music;
-    }
-
-    public void setMusic(Music music){
-        this.music = music;
-    }
-
-    public void playMusic(){
-        System.out.println("Playing: " + music.getSong());
+    public String playMusic(){
+        return "Playing: " + music1.getSong() + ", " + music2.getSong();
     }
 }
