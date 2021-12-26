@@ -17,6 +17,18 @@ public class MusicPlayer {
         this.music2 = music2;
     }
 
+
+    @Autowired
+    @Qualifier("rockMusic")
+    public void setMusic1(Music music1) {
+        this.music1 = music1;
+    }
+    @Autowired
+    @Qualifier("classicalMusic")
+    public void setMusic2(Music music2) {
+        this.music2 = music2;
+    }
+
     public String playMusic(){
         return "Playing: " + music1.getSong() + ", " + music2.getSong();
     }

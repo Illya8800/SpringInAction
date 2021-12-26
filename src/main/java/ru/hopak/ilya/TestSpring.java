@@ -12,6 +12,19 @@ public class TestSpring {
         System.out.println(computer);
 
         context.close();
+
+        System.out.println(unChet(5));
+
+
+
+    }
+
+    public static long unChet(long n){
+        long sum = 0;
+        for (long i = 1; i <= n; i+=2) {
+            sum += i;
+        }
+        return sum;
     }
 }
 
