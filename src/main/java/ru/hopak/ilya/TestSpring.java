@@ -1,11 +1,19 @@
 package ru.hopak.ilya;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class TestSpring {
+
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+        /*ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
+        );*/
+
+
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+                SpringConfig.class
         );
 
         Computer computer = context.getBean("computer", Computer.class);
@@ -13,18 +21,8 @@ public class TestSpring {
 
         context.close();
 
-        System.out.println(unChet(5));
-
-
 
     }
 
-    public static long unChet(long n){
-        long sum = 0;
-        for (long i = 1; i <= n; i+=2) {
-            sum += i;
-        }
-        return sum;
-    }
 }
 

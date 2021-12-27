@@ -30,6 +30,6 @@ public class MusicPlayer {
     }
 
     public String playMusic(){
-        return "Playing: " + music1.getSong() + ", " + music2.getSong();
+        return "\nPlaying: " + music1.getSong() + "\n\t\t " + music2.getSong();
     }
 }
